@@ -1,17 +1,16 @@
-print("Username option not found")
-exit(1)
-
 import yaml
 
 with open('config.yaml', 'r') as config_file:
     config = yaml.safe_load(config_file)
 
-# Find the 'username' option in the list
-username_option = next((item for item in config['options'] if item['name'] == 'username'), None)
+external_hostname = next((item for item in config['options'] if item['name'] == 'external_hostname'), None)
+print(external_hostname)
+additional_hosts = next((item for item in config['options'] if item['name'] == 'additional_hosts'), None)
+print(additional_hosts)
 
 # Print the details of the 'username' option
-if username_option is not None:
-    print(username_option)
+if external_hostname is not None:
+    print(external_hostname)
 else:
     print("Username option not found")
 
