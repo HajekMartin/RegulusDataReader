@@ -8,26 +8,5 @@
         "armv7",
         "amd64",
         "aarch64"
-    ],
-    "startup": "services",
-    "boot": "auto",
-    "options": {
-        "script": "./main.py",
-        "interval": 5
-    },
-    "schema": {
-        "script": {
-            "type": "string"
-        },
-        "interval": {
-            "type": "integer"
-        }
-    },
-    "services": [
-        {
-            "name": "python_script",
-            "command": "python3 {{options.script}}",
-            "interval": "{{options.interval}}"
-        }
     ]
 }
