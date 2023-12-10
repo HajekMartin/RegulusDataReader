@@ -9,18 +9,3 @@ arch:
         - amd64
         - aarch64
 init: false
-options:
-    - name: username
-        description: Your username
-        required: true
-        default: ""
-
-    - name: password
-        description: Your password
-        required: true
-        default: ""
-
-    - name: interval
-        description: Interval in seconds
-        required: true
-        default: 60

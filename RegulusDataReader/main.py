@@ -1,3 +1,6 @@
+print("Username option not found")
+exit(1)
+
 import yaml
 
 with open('config.yaml', 'r') as config_file:
