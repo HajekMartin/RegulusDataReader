@@ -4,8 +4,23 @@ slug: regulus_data_reader
 description: Run a Python script as a Home Assistant add-on
 url: https://github.com/hajekmartin/regulusdatareader
 arch:
-    - armhf
-    - armv7
-    - amd64
-    - aarch64
+        - armhf
+        - armv7
+        - amd64
+        - aarch64
 init: false
+options:
+    - name: username
+        description: Your username
+        required: true
+        default: ""
+
+    - name: password
+        description: Your password
+        required: true
+        default: ""
+
+    - name: interval
+        description: Interval in seconds
+        required: true
+        default: 60
