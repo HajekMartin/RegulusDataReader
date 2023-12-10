@@ -9,3 +9,7 @@ configuration:
     name: Additional Hosts
     description: >-
       Define a list of additional hosts to be routed by the Cloudflare Tunnel.
+  interval:
+    name: Interval in seconds of sending data
+    description: >-
+      Set this to the interval in seconds of sending data to server.
