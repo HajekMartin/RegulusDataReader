@@ -1,6 +1,17 @@
 import yaml
+import os
 
-with open('config.yaml', 'r') as config_file:
+folder_path = '/usr/src/app'
+
+# Get the list of files and directories in the folder
+folder_content = os.listdir(folder_path)
+
+# Print the folder content
+for item in folder_content:
+    print(item)
+
+
+with open('/usr/src/app/config.yaml', 'r') as config_file:
     config = yaml.safe_load(config_file)
 
 external_hostname = next((item for item in config['options'] if item['name'] == 'external_hostname'), None)
