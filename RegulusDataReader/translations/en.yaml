@@ -1,14 +1,5 @@
 ---
 configuration:
-  external_hostname:
-    name: External Home Assistant Hostname
-    description: >-
-      Set this to your domain name or subdomain that you want to use to
-      access Home Assistant.
-  additional_hosts:
-    name: Additional Hosts
-    description: >-
-      Define a list of additional hosts to be routed by the Cloudflare Tunnel.
   interval:
     name: Interval in seconds of sending data
     description: >-
