@@ -10,7 +10,22 @@ arch:
     - aarch64
 init: false
 configuration:
-    parameter_1:
-        name: Parameter 1
-        description: Parameter 1 description
-        default: 1
+  log_level:
+    name: Log Level
+    description: >-
+      Defines the log level for add-on and the Cloudflare service.
+  external_hostname:
+    name: External Home Assistant Hostname
+    description: >-
+      Set this to your domain name or subdomain that you want to use to
+      access Home Assistant.
+  tunnel_name:
+    name: Cloudflare Tunnel Name
+    description: >-
+      Defines the name of the tunnel created for the communication between
+      this service and the Cloudflare edge server. The default value should
+      be fine in most use cases.
+  additional_hosts:
+    name: Additional Hosts
+    description: >-
+      Define a list of additional hosts to be routed by the Cloudflare Tunnel.
