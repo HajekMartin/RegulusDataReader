@@ -9,13 +9,4 @@ arch:
     - amd64
     - aarch64
 init: false
-config:
-    - name: parameter1
-        description: Description of parameter1
-        required: true
-        default: default_value1
-    - name: parameter2
-        description: Description of parameter2
-        required: false
-        default: default_value2
 
