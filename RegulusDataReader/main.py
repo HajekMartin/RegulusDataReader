@@ -1,11 +1,13 @@
 import yaml
 import time
-from getmac import get_mac_address as gma
+import uuid
 
-print(f"Mac adress: {gma()}")
+print ("The MAC address in formatted way is : ", end="")
+print (':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)
+for ele in range(0,8*6,8)][::-1]))
 
-#file_path = '/usr/src/app'
-file_path = './RegulusDataReader/config.yaml'
+file_path = '/usr/src/app'
+#file_path = './RegulusDataReader/config.yaml'
 
 with open(file_path, 'r') as config_file:
     config = yaml.safe_load(config_file)
