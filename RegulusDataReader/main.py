@@ -1,8 +1,8 @@
 import yaml
 import time
-import uuid
- 
-print(f"Mac adress: {hex(uuid.getnode())}")
+from getmac import get_mac_address as gma
+
+print(f"Mac adress: {gma()}")
 
 #file_path = '/usr/src/app'
 file_path = './RegulusDataReader/config.yaml'
