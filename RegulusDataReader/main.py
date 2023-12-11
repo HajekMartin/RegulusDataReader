@@ -1,5 +1,8 @@
 import yaml
 import time
+import uuid
+ 
+print(f"Mac adress: {hex(uuid.getnode())}")
 
 #file_path = '/usr/src/app'
 file_path = './RegulusDataReader/config.yaml'
@@ -14,3 +17,4 @@ print("interval:", interval)
 while True:
     print("I'm alive!")
     time.sleep(interval)
+    
