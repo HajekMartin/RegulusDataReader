@@ -1,6 +1,6 @@
 import yaml
 import time
-import requests
+#import requests
 
 file_path = '/usr/src/app/config.yaml'
 #file_path = './RegulusDataReader/config.yaml'
@@ -16,6 +16,7 @@ def read_config():
     interval = config['options'].get('interval')
     print("interval:", interval)
 
+"""
 def read_xml():
     url = 'https://regulusroute.tecomat.com/HOME.XML'
     response = requests.get(url)
@@ -23,7 +24,7 @@ def read_xml():
 
     # Print XML content
     print(xml_content)
-    
+    """
 
 if __name__ == '__main__':
     print("Regulus Data Reader")
