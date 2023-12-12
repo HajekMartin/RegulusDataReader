@@ -26,8 +26,9 @@ def read_xml():
     
 
 if __name__ == '__main__':
-
+    print("Regulus Data Reader")
     read_config()
+
     while True:
         
         read_xml()
