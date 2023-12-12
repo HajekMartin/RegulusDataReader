@@ -30,7 +30,7 @@ if __name__ == '__main__':
     read_config()
 
     while True:
-        
+        print(f"Reading XML at {time.strftime('%Y-%m-%d %H:%M:%S')}")
         read_xml()
 
         time.sleep(interval)
