@@ -2,7 +2,7 @@ import yaml
 import time
 import requests
 
-file_path = '/usr/src/app'
+file_path = '/usr/src/app/config.yaml'
 #file_path = './RegulusDataReader/config.yaml'
 
 # Global
