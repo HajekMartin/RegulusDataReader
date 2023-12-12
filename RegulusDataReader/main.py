@@ -27,10 +27,10 @@ def read_xml():
 
 if __name__ == '__main__':
     print("Regulus Data Reader")
-    read_config()
+    #read_config()
 
     while True:
         print(f"Reading XML at {time.strftime('%Y-%m-%d %H:%M:%S')}")
-        read_xml()
+        #read_xml()
         time.sleep(60)
     
