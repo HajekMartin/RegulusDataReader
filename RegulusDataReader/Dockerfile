@@ -1,3 +1,5 @@
+RUN bash -c 'echo -e Starting Dockerfile....' 
+
 FROM python:3.8-slim
 
 COPY . /usr/src/app

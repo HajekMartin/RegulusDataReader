@@ -5,14 +5,11 @@ import time
 file_path = '/usr/src/app/config.yaml'
 #file_path = './RegulusDataReader/config.yaml'
 
-# Global
-interval = 60
 
 def read_config():
     with open(file_path, 'r') as config_file:
         config = yaml.safe_load(config_file)
 
-    global interval
     interval = config['options'].get('interval')
     print("interval:", interval)
 
