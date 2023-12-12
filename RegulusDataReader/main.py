@@ -1,22 +1,36 @@
 import yaml
 import time
-import uuid
-
-print ("The MAC address in formatted way is : ", end="")
-print (':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)
-for ele in range(0,8*6,8)][::-1]))
+import requests
 
 file_path = '/usr/src/app'
 #file_path = './RegulusDataReader/config.yaml'
 
-with open(file_path, 'r') as config_file:
-    config = yaml.safe_load(config_file)
+# Global
+interval = 1
 
-interval = config['options'].get('interval')
+def read_config():
+    with open(file_path, 'r') as config_file:
+        config = yaml.safe_load(config_file)
 
-print("interval:", interval)
+    global interval
+    interval = config['options'].get('interval')
+    print("interval:", interval)
 
-while True:
-    print("I'm alive!")
-    time.sleep(interval)
+def read_xml():
+    url = 'https://regulusroute.tecomat.com/HOME.XML'
+    response = requests.get(url)
+    xml_content = response.text
+
+    # Print XML content
+    print(xml_content)
+    
+
+if __name__ == '__main__':
+
+    read_config()
+    while True:
+        
+        read_xml()
+
+        time.sleep(interval)
     
