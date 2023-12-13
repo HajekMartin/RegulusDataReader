@@ -15,3 +15,5 @@ schema:
   interval: int
 logger:
   default: info
+system_log:
+  max_entries: MAX_ENTRIES
