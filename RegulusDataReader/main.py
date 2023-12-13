@@ -1,7 +1,8 @@
 import yaml
 import time
 
-if __name__=='__main__':
+
+def read_config():
     file_path = '/usr/src/app/config.yaml'
     #file_path = './RegulusDataReader/config.yaml'
 
@@ -11,6 +12,9 @@ if __name__=='__main__':
     interval = config['options'].get('interval')
     print("interval:", interval)
 
-    while True:
-        print("I'm alive!")
-        time.sleep(60)
+
+print("Starting RegulusDataReader...")
+read_config()
+while True:
+    print("I'm alive!")
+    time.sleep(60)
