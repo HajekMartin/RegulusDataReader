@@ -14,16 +14,3 @@ with open(file_path, 'r') as config_file:
 interval = config['options'].get('interval')
 print("interval:", interval)
 
-
-"""
-While loop
-"""
-url = 'https://regulusroute.tecomat.com/HOME.XML'
-    
-while True:
-    response = requests.get(url)
-    xml_content = response.text
-
-    # Print XML content
-    print(xml_content)
-    time.sleep(interval)
