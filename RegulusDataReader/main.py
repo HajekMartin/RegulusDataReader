@@ -26,4 +26,4 @@ if __name__ == '__main__':
     while True:
         read_xml()
 
-        time.sleep(60)
+        time.sleep(1)
