@@ -1,20 +1,29 @@
 import yaml
 import time
-
-print("asdasdasd")
-
-def read_config():
-    file_path = '/usr/src/app/config.yaml'
-    #file_path = './RegulusDataReader/config.yaml'
-
-    with open(file_path, 'r') as config_file:
-        config = yaml.safe_load(config_file)
-
-    interval = config['options'].get('interval')
-    print("interval:", interval)
+import requests
 
 print("Starting RegulusDataReader...")
-read_config()
+"""
+Reading config
+"""
+file_path = '/usr/src/app/config.yaml'
+#file_path = './RegulusDataReader/config.yaml'
+with open(file_path, 'r') as config_file:
+    config = yaml.safe_load(config_file)
+
+interval = config['options'].get('interval')
+print("interval:", interval)
+
+
+"""
+While loop
+"""
+url = 'https://regulusroute.tecomat.com/HOME.XML'
+    
 while True:
-    print("I'm alive!")
-    time.sleep(60)
+    response = requests.get(url)
+    xml_content = response.text
+
+    # Print XML content
+    print(xml_content)
+    time.sleep(interval)
