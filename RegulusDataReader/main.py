@@ -18,13 +18,7 @@ print("interval:", interval)
 """
 While loop
 """
-url = 'https://regulusroute.tecomat.com/HOME.XML'
     
 while True:
     print(f"Reading XML {time.ctime()}")
-    response = requests.get(url)
-    xml_content = response.text
-
-    # Print XML content
-    print(xml_content)
     time.sleep(interval)
