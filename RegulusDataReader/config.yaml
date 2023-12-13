@@ -13,3 +13,5 @@ options:
   interval: 60
 schema:
   interval: int
+logger:
+  default: info
