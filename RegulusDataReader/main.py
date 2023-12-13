@@ -1,10 +1,11 @@
 import yaml
 import time
 import requests
+import datetime
 
 def read_config():
-    file_path = '/usr/src/app/config.yaml'
-    #file_path = './RegulusDataReader/config.yaml'
+    #file_path = '/usr/src/app/config.yaml'
+    file_path = './RegulusDataReader/config.yaml'
     with open(file_path, 'r') as config_file:
         config = yaml.safe_load(config_file)
 
@@ -14,7 +15,8 @@ def read_config():
 def read_xml():
     url = 'https://regulusroute.tecomat.com/HOME.XML'
     
-    print(f"Reading XML {time}")
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Reading XML at {current_time}")
     response = requests.get(url)
     xml_content = response.text
 
@@ -26,4 +28,4 @@ if __name__ == '__main__':
     while True:
         read_xml()
 
-        time.sleep(1)
+        time.sleep(10)
