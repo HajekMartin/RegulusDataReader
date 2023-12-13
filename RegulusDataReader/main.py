@@ -13,9 +13,8 @@ def read_config():
     interval = config['options'].get('interval')
     print("interval:", interval)
 
-if __name__=='__main__':
-    print("Starting RegulusDataReader...")
-    read_config()
-    while True:
-        print("I'm alive!")
-        time.sleep(60)
+print("Starting RegulusDataReader...")
+read_config()
+while True:
+    print("I'm alive!")
+    time.sleep(60)
