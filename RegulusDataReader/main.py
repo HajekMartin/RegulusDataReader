@@ -19,6 +19,10 @@ print("interval:", interval)
 While loop
 """
     
-while True:
-    print(f"Reading XML {time.ctime()}")
-    time.sleep(interval)
+print(f"Reading XML {time.ctime()}")
+response = requests.get(url)
+xml_content = response.text
+
+# Print XML content
+print(xml_content)
+time.sleep(interval)
