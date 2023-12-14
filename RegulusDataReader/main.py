@@ -13,7 +13,7 @@ def read_config():
     print("interval:", interval)
 
 def read_xml():
-    url = 'https://regulusroute.tecomat.com/HOME.XML'
+    url = 'http://192.168.0.116/HOME.XML'
     
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"Reading XML at {current_time}")
