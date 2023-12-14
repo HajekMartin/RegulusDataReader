@@ -4,8 +4,8 @@ import requests
 import datetime
 
 def read_config():
-    #file_path = '/usr/src/app/config.yaml'
-    file_path = './RegulusDataReader/config.yaml'
+    file_path = '/usr/src/app/config.yaml'
+    #file_path = './RegulusDataReader/config.yaml'
     with open(file_path, 'r') as config_file:
         config = yaml.safe_load(config_file)
 
@@ -17,7 +17,7 @@ def read_xml(url):
     print(f"Reading URL {url} at {current_time}")
     response = requests.get(url)
     xml_content = response.text
-    
+
     # Print XML content
     print(xml_content)
 
