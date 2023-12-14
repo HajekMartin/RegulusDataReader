@@ -29,5 +29,5 @@ if __name__ == '__main__':
             read_xml(url)
         except Exception as e: 
             print("Error reading URL:", e)
-        
+
         time.sleep(10)
