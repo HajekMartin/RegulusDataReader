@@ -57,7 +57,7 @@ def send_temperatures():
                 'attribute_value': diag.attrib['VALUE']
             }
             response = requests.post(heated_zones_temperatures_url, data=post_data)
-            print_log("Temperature sent for zone: " + heated_zone['code'] + " with response: " + response, "send_temperatures")
+            print_log("Temperature sent for zone: " + heated_zone['code'], "send_temperatures")
     except Exception as e:
         print_log("Failed to send temperatures: " + str(e), "send_temperatures")
 
