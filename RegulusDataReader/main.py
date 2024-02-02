@@ -29,9 +29,7 @@ def send_temperatures():
         else:
             print_log("Failed to send CSV file", "send_temperatures")
     else:
-        print_log("Failed to download CSV file: " + response.content, "send_temperatures")
-
-    
+        print_log("Failed to download CSV file: " + str(response.content), "send_temperatures")  
 
 def read_config(value_name):
     try:
