@@ -12,7 +12,7 @@ def download_heated_zones():
     try:
         print_log("Downloading heated zones", "download_heated_zones")
         url = read_config("heated_zones_list_url")
-        response = requests.get(url)
+        response = requests.get(url, data={'guid': read_config('guid')})
         data = response.json()
         save_to_file(data)  # Save the heated zones to a file
         print_log("Heated zones downloaded", "download_heated_zones")
