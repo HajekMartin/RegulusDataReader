@@ -10,9 +10,13 @@ arch:
     - aarch64
 init: false
 options:
-  interval: 60
+  guid: ''
+  url: ''
+  regulus_url: ''
 schema:
-  interval: int
+  guid: str
+  url: str
+  regulus_url: str
 logger:
   default: info
 system_log:
