@@ -12,7 +12,7 @@ def send_temperatures():
     guid = read_config("guid")
     regulus_url = read_config("regulus_url")
     yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
-    regulus_url = regulus_url + "/SDC/Datalog/teploty/" + yesterday.strftime('%Y/%m/%d') + "000000.CSV"
+    regulus_url = regulus_url + "SDC/Datalog/teploty/" + yesterday.strftime('%Y/%m/%d') + "000000.CSV"
 
     # Download CSV file
     print_log("Downloading CSV file from " + regulus_url, "send_temperatures")
@@ -29,7 +29,7 @@ def send_temperatures():
         else:
             print_log("Failed to send CSV file", "send_temperatures")
     else:
-        print_log("Failed to download CSV file", "send_temperatures")
+        print_log("Failed to download CSV file: " + response.content, "send_temperatures")
 
     
 
