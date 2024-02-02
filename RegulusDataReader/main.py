@@ -25,7 +25,6 @@ def save_to_file(data):
     file_path = DEF_FODLER + 'heated_zones.json'
     with open(file_path, 'w') as file:
         file.write(json.dumps(data))
-        json.dump(data, file)
         print_log("Heated zones saved to file", "save_to_file")
 
 def read_from_file(file_name):
