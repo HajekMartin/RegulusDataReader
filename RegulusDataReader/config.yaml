@@ -11,12 +11,12 @@ arch:
 init: false
 options:
   guid: ''
-  url: ''
-  regulus_url: ''
+  heated_zones_list_url: ''
+  heated_zones_temperatures_url: ''
 schema:
   guid: str
-  url: str
-  regulus_url: str
+  heated_zones_list_url: str
+  heated_zones_temperatures_url: str
 logger:
   default: info
 system_log:
