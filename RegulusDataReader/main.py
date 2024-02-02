@@ -50,11 +50,11 @@ def send_temperatures():
             response = requests.get(url)
             xml_data = response.text
             root = ET.fromstring(xml_data)
-            diag = root.find(".//*[@name='{}']".format(heated_zone['code']))
+            diag = root.find(".//*[@NAME='{}']".format(heated_zone['code']))
             post_data = {
                 'guid': guid,
                 'code': heated_zone['code'],
-                'attribute_value': diag.attrib['value']
+                'attribute_value': diag.attrib['VALUE']
             }
             response = requests.post(heated_zones_temperatures_url, data=post_data)
             print_log("Temperature sent for zone: " + heated_zone['code'], "send_temperatures")
