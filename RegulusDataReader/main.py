@@ -54,7 +54,7 @@ def send_temperatures():
             post_data = {
                 'guid': guid,
                 'code': heated_zone['code'],
-                'attribute_value': diag.attrib['VALUE']
+                'value': diag.attrib['VALUE']
             }
             response = requests.post(heated_zones_temperatures_url, data=post_data)
             print_log("Temperature sent for zone: " + heated_zone['code'] + "(" + post_data + ", " + response.status_code + ")", "send_temperatures")
