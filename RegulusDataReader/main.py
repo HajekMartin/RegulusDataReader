@@ -9,13 +9,14 @@ import xml.etree.ElementTree as ET
 DEF_FODLER = 'usr/src/app/'
 
 def send_temperatures():
-    guid = read_config('guid')
+    #guid = read_config('guid')
+    guid = '8b12dfe1-6e3b-46e8-af38-e1c0e73c2558'
 
     get_objects_url = 'https://dphajek-windows.azurewebsites.net/Api/Regulus/GetAllObjects'
     try:
         print_log("Downloading regulus objects", "send_temperatures")
         response = requests.get(get_objects_url, params={'guid': guid})
-        objects = response.text
+        objects = json.loads(response.text)
     except Exception as e:
         print_log("Failed to download regulus objects " + str(e), "send_temperatures")
         return
@@ -77,7 +78,7 @@ def create_log_file():
 if __name__ == '__main__':
     print_log("Starting RegulusDataReader", "main")
 
-    #send_temperatures()
+    send_temperatures()
     scheduler = BlockingScheduler()
     scheduler.add_job(send_temperatures, 'cron', minute='0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59')
 
