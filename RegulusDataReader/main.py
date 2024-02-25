@@ -8,58 +8,35 @@ import xml.etree.ElementTree as ET
 
 DEF_FODLER = 'usr/src/app/'
 
-def download_heated_zones():
-    try:
-        print_log("Downloading heated zones", "download_heated_zones")
-        url = read_config("heated_zones_list_url")
-        response = requests.get(url, data={'guid': read_config('guid')})
-        data = response.json()
-        save_to_file(data)  # Save the heated zones to a file
-        print_log("Heated zones downloaded", "download_heated_zones")
-        return data
-    except Exception as e:
-        print_log("Failed to download heated zones: " + str(e), "download_heated_zones")
-        return None
-
-def save_to_file(data):
-    file_path = DEF_FODLER + 'heated_zones.json'
-    with open(file_path, 'w') as file:
-        file.write(json.dumps(data))
-        print_log("Heated zones saved to file", "save_to_file")
-
-def read_from_file(file_name):
-    try:
-        print_log("Reading from file " + file_name, "read_from_file")
-        file_path = DEF_FODLER + file_name
-        with open(file_path) as file:
-            data = json.load(file)
-            print_log("Data read from file", "read_from_file")
-            return data
-    except Exception as e:
-        print_log("Failed to read from file: " + str(e), "read_from_file")
-        return None
-
 def send_temperatures():
     guid = read_config('guid')
-    heated_zones_temperatures_url = read_config('heated_zones_temperatures_url')
+    get_objects_url = read_config('get_regulus_objects')
     try:
-        print_log("Sending temperatures", "send_temperatures")
-        heated_zones = read_from_file('heated_zones.json')
-        for heated_zone in heated_zones:
-            url = heated_zone['url']
+        print_log("Downloading regulus objects", "send_temperatures")
+        response = requests.get(get_objects_url)
+        objects = response.text
+    except Exception as e:
+        print_log("Failed to download regulus objects " + str(e), "send_temperatures")
+        return
+
+    set_regulus_objects_url = read_config('set_regulus_objects')
+    for object in objects:
+        try:
+            url = object['url']
             response = requests.get(url)
+            code = object['code']
             xml_data = response.text
             root = ET.fromstring(xml_data)
-            diag = root.find(".//*[@NAME='{}']".format(heated_zone['code']))
+            diag = root.find(".//*[@NAME='{}']".format(code))
             post_data = {
                 'guid': guid,
-                'code': heated_zone['code'],
+                'code': object['code'],
                 'value': diag.attrib['VALUE']
             }
-            response = requests.post(heated_zones_temperatures_url, data=post_data)
-            print_log("Temperature sent for zone: " + heated_zone['code'] + "(" + str(post_data) + ", " + str(response.status_code) + ")", "send_temperatures")
-    except Exception as e:
-        print_log("Failed to send temperatures: " + str(e), "send_temperatures")
+            response = requests.post(set_regulus_objects_url, data=post_data)
+            print_log("Temperature sent for object: " + code + "(" + str(post_data) + ", " + str(response.status_code) + ")", "send_temperatures")
+        except Exception as e:
+            print_log("Failed to send temperatures for object: " + code + " " + str(e), "send_temperatures")
 
 def read_config(value_name):
     try:
@@ -99,10 +76,8 @@ def create_log_file():
 if __name__ == '__main__':
     print_log("Starting RegulusDataReader", "main")
 
-    download_heated_zones()
-
     scheduler = BlockingScheduler()
-    scheduler.add_job(send_temperatures, 'cron', minute='0,15,30,45')
+    scheduler.add_job(send_temperatures, 'cron', minute='0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59')
 
     scheduler.start()
     
