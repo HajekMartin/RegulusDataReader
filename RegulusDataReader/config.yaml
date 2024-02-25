@@ -11,12 +11,8 @@ arch:
 init: false
 options:
   guid: ''
-  get_regulus_objects: ''
-  set_regulus_objects: ''
 schema:
   guid: str
-  get_regulus_objects: str
-  set_regulus_objects: str
 logger:
   default: info
 system_log:

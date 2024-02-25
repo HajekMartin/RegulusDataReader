@@ -10,7 +10,7 @@ DEF_FODLER = 'usr/src/app/'
 
 def send_temperatures():
     guid = read_config('guid')
-    get_objects_url = read_config('get_regulus_objects')
+    get_objects_url = 'https://dphajek-windows.azurewebsites.net/Api/Regulus/GetAllObjects'
     try:
         print_log("Downloading regulus objects", "send_temperatures")
         response = requests.get(get_objects_url)
@@ -19,7 +19,7 @@ def send_temperatures():
         print_log("Failed to download regulus objects " + str(e), "send_temperatures")
         return
 
-    set_regulus_objects_url = read_config('set_regulus_objects')
+    set_regulus_objects_url = 'https://dphajek-windows.azurewebsites.net/Api/Regulus/SetObjectData'
     for object in objects:
         try:
             url = object['url']
