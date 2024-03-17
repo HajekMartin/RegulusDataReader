@@ -9,8 +9,7 @@ import xml.etree.ElementTree as ET
 DEF_FODLER = 'usr/src/app/'
 
 def send_temperatures():
-    #guid = read_config('guid')
-    guid = '8b12dfe1-6e3b-46e8-af38-e1c0e73c2558'
+    guid = read_config('guid')
 
     get_objects_url = 'https://dphajek-windows.azurewebsites.net/Api/Regulus/GetAllObjects'
     try:
